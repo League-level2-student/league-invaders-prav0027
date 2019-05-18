@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,9 @@ final int MENU = 0;
 final int GAME = 1;
 final int END = 2;
 int currentState = MENU;
+
+Rocketship rocket = new Rocketship(250, 750, 50, 50, false);
+
 void updateMenuState(){
 	
 }
@@ -52,6 +56,7 @@ void drawMenuState(Graphics g) {
 void drawGameState(Graphics g) {
 	g.setColor(Color.BLACK);
 	g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+	rocket.draw(g);
 }
 void drawEndState(Graphics g) {
 	g.setColor(Color.RED);
@@ -109,16 +114,24 @@ public void keyPressed(KeyEvent e) {
 	}
 	if(currentState==GAME) {
 		if(e.getKeyCode()==KeyEvent.VK_UP) {
-			System.out.println("UP");
+			if(rocket.y>Frame.HEIGHT) {
+			rocket.up();
+			}
 		}
 		if(e.getKeyCode()==KeyEvent.VK_DOWN) {
-			System.out.println("DOWN");
+			if(rocket.y<750) {
+				rocket.down();
+			}
 		}
 		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
-			System.out.println("LEFT");
+			if(rocket.x>0) {
+			rocket.left();
+			}
 		}
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			System.out.println("RIGHT");
+			if(rocket.x<450) {
+			rocket.right();
+			}
 		}
 	}
 }

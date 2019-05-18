@@ -4,15 +4,17 @@ int x;
 int y;
 int width;
 int height;
-int speed;
+int speed = 0;
 boolean isActive;
 
-public GameObject() {
-	x = 100;
-	y = 300;
-	width = 100;
-	height = 500;
-	speed = 0;
-	isActive = true;
+public GameObject(int x, int y, int width, int height, boolean isActive) {
+	this.x = x;
+	this.y = y;
+	this.width = width;
+	this.height = height;
+	this.isActive = isActive;
+}
+void update() {
+	
 }
 }
