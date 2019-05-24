@@ -5,14 +5,13 @@ int y;
 int width;
 int height;
 int speed = 0;
-boolean isActive;
+boolean isActive = true;;
 
-public GameObject(int x, int y, int width, int height, boolean isActive) {
+public GameObject(int x, int y, int width, int height) {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
-	this.isActive = isActive;
 }
 void update() {
 	

@@ -30,13 +30,15 @@ final int GAME = 1;
 final int END = 2;
 int currentState = MENU;
 
-Rocketship rocket = new Rocketship(250, 750, 50, 50, false);
+Rocketship rocket = new Rocketship(250, 750, 50, 50);
+
+ObjectManager objectManager = new ObjectManager(rocket);
 
 void updateMenuState(){
 	
 }
 void updateGameState() {
-	
+	objectManager.update();
 }
 void updateEndState() {
 	
@@ -56,7 +58,8 @@ void drawMenuState(Graphics g) {
 void drawGameState(Graphics g) {
 	g.setColor(Color.BLACK);
 	g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
-	rocket.draw(g);
+	objectManager.draw(g);
+	
 }
 void drawEndState(Graphics g) {
 	g.setColor(Color.RED);

@@ -3,8 +3,8 @@ import java.awt.Graphics;
 
 public class Projectile extends GameObject{
 
-	public Projectile(int x, int y, int width, int height, boolean isActive) {
-		super(x, y, width, height, isActive);
+	public Projectile(int x, int y, int width, int height) {
+		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
 		speed = 10;
 	}

@@ -3,8 +3,8 @@ import java.awt.Graphics;
 
 public class Alien extends GameObject {
 
-	public Alien(int x, int y, int width, int height, boolean isActive) {
-		super(x, y, width, height, isActive);
+	public Alien(int x, int y, int width, int height) {
+		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
 		speed=1;
 	}
