@@ -48,6 +48,9 @@ void updateMenuState(){
 }
 void updateGameState() {
 	objectManager.update();
+	if(!rocket.isActive) {
+		currentState=END;
+	}
 }
 void updateEndState() {
 	
@@ -127,7 +130,7 @@ public void actionPerformed(ActionEvent e) {
 	else if(currentState==END) {
 		updateEndState();
 	}
-	System.out.println("action");
+	//System.out.println("action");
 	repaint();
 }
 @Override
@@ -176,6 +179,7 @@ public void keyPressed(KeyEvent e) {
 	if(e.getKeyCode()==KeyEvent.VK_SPACE) {
 		if(currentState==GAME) {
 		objectManager.addProjectile(rocket.getProjectile());
+		System.out.println("space");
 		}
 	}
 }

@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -8,6 +9,7 @@ public class Projectile extends GameObject{
 
 	public Projectile(int x, int y, int width, int height) {
 		super(x, y, width, height);
+		isActive = true;
 		// TODO Auto-generated constructor stub
 		speed = 10;
 		if(needImage) {
@@ -20,6 +22,7 @@ public class Projectile extends GameObject{
 	
 void update() {
 	y-=speed;
+	super.update();
 }
 void draw(Graphics g) {
 	g.setColor(Color.RED);

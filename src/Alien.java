@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -20,6 +21,7 @@ public class Alien extends GameObject {
 	
 void update() {
 	y+=speed;
+	super.update();
 }
 void draw(Graphics g) {
 	if(gotImage) {
