@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.Timer;
@@ -96,9 +97,12 @@ void drawEndState(Graphics g) {
 	g.drawString("Game Over", 120, 100);
 	g.setFont(menuFont);
 	g.setColor(Color.YELLOW);
-	g.drawString("You killed so many enemies", 120, 350);
+	g.drawString("You killed "+objectManager.getScore() +" enemies", 120, 350);
 	g.drawString("Press ENTER to restart", 130, 600);
+	
 }
+
+
 
 Font titleFont;
 Font menuFont;
@@ -130,7 +134,6 @@ public void actionPerformed(ActionEvent e) {
 	else if(currentState==END) {
 		updateEndState();
 	}
-	//System.out.println("action");
 	repaint();
 }
 @Override
@@ -152,6 +155,8 @@ public void keyPressed(KeyEvent e) {
 		else if(currentState==GAME) {
 			currentState=END;
 			alienSpawn.stop();
+			rocket = new Rocketship(250, 750, 50, 50);
+			objectManager = new ObjectManager(rocket);
 		}
 	}
 	if(currentState==GAME) {
@@ -179,7 +184,10 @@ public void keyPressed(KeyEvent e) {
 	if(e.getKeyCode()==KeyEvent.VK_SPACE) {
 		if(currentState==GAME) {
 		objectManager.addProjectile(rocket.getProjectile());
-		System.out.println("space");
+		}
+		
+		if(currentState==MENU) {
+			JOptionPane.showMessageDialog(null, "Use arrow keys to move. Press SPACE to fire. Try not to die.");
 		}
 	}
 }
